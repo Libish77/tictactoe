@@ -8,7 +8,7 @@ body {
   align-items: center;
 }
 
-.container {
+.box {
   display: grid;
   grid-template-columns: repeat(3, 100px);
   grid-template-rows: repeat(3, 100px);
@@ -30,6 +30,24 @@ body {
 
 .cell:hover {
   background-color: #851f1f;
+}
+
+.cell.playerX {
+  color: #ff6347;
+}
+
+.cell.playerO {
+  color: #6495ed;
+}
+
+.message {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+
+.message span {
+  font-weight: bold;
 }
 
 
