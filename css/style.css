@@ -50,4 +50,48 @@ body {
   font-weight: bold;
 }
 
+#playButton {
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
 
+.row-1 {
+  margin-top: -10vw;
+}
+
+.row-2 {
+  margin-top: 0;
+}
+
+.row-3 {
+  margin-top: 8vw;
+}
+
+.col-1 {
+  margin-left: -9vw;
+  transform: rotate(90deg);
+}
+
+.col-2 {
+  margin-left: 0;
+  transform: rotate(90deg);
+}
+
+.col-3 {
+  margin-left: 9vw;
+  transform: rotate(90deg);
+}
+
+.dig-1 {
+  margin-top: -1vw;
+  width: 27vw;
+  transform: rotate(-45deg);
+}
+
+.dig-2 {
+  margin-top: -1vw;
+  width: 27vw;
+  
+  transform: rotate(45deg);
+}

@@ -14,6 +14,7 @@
  // Initialize the game status as active
  let gameActive = true;
  
+
  // Define winning combinations in Tic-Tac-Toe
  const winningCombination = [
    [0, 1, 2], // Top row
@@ -48,9 +49,13 @@
    if (checkWin(currentPlayer)) {
      gameActive = false; // Set game status to inactive
      messageText.textContent = `${currentPlayer} wins!`; // Display winner message
+     let elmButton = document.getElementById('playButton');
+     elmButton.style.display = "block"; // showing play again button 
    } else if (checkDraw()) {
      gameActive = false; // Set game status to inactive
      messageText.textContent = "It's a draw!"; // Display draw message
+     let elmButton = document.getElementById('playButton');
+     elmButton.style.display = "block"; // showing play again button 
    } else {
      currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Switch the current player
      messageText.textContent = "Player" + currentPlayer + "'s turn"; // Update message to display the current player's turn
@@ -68,3 +73,17 @@ function checkWin(player) {
 function checkDraw() {
     return Array.from(cells).every(cell => cell.textContent !== '');
 }
+
+// Function to reset all the cells after clicking play again
+document.getElementById('playButton').addEventListener('click', () => {
+    cells.forEach(cell => {
+        cell.textContent = '';
+    });
+
+    // Reset game status and current player
+    gameActive = true;
+    currentPlayer = 'X';
+    messageText.textContent = `Player ${currentPlayer}'s turn`;
+    let elmButton = document.getElementById('playButton');
+    elmButton.style.display = "none"; // hiding play again button 
+});
