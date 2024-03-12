@@ -29,7 +29,7 @@
  
  // Add click event listener to each cell
  cells.forEach(cell => {
-   cell.addEventListener('click', handleClick, { once: true }); // 'once: true' ensures the event listener is removed after the first click
+   cell.addEventListener('click', handleClick); 
  });
  
  // Function to handle cell click event
@@ -48,7 +48,7 @@
    // Check if the current player wins the game
    if (checkWin(currentPlayer)) {
      gameActive = false; // Set game status to inactive
-     messageText.textContent = `${currentPlayer} wins!`; // Display winner message
+     messageText.textContent = `Player ${currentPlayer} wins!`; // Display winner message
      let elmButton = document.getElementById('playButton');
      elmButton.style.display = "block"; // showing play again button 
    } else if (checkDraw()) {
@@ -64,6 +64,7 @@
  
 // Function to check if the current player wins the game
 function checkWin(player) {
+  debugger;
     return winningCombination.some(combination => 
         combination.every(index => cells[index].classList.contains(`player${player}`))
     );
@@ -76,14 +77,16 @@ function checkDraw() {
 
 // Function to reset all the cells after clicking play again
 document.getElementById('playButton').addEventListener('click', () => {
+  debugger;
     cells.forEach(cell => {
         cell.textContent = '';
+        cell.classList.remove('playerX', 'playerO'); 
     });
-
     // Reset game status and current player
     gameActive = true;
     currentPlayer = 'X';
     messageText.textContent = `Player ${currentPlayer}'s turn`;
     let elmButton = document.getElementById('playButton');
     elmButton.style.display = "none"; // hiding play again button 
+    
 });
